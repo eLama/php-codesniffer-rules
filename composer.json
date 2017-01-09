@@ -1,0 +1,11 @@
+{
+  "name": "elama\/php-codesniffer-rules",
+
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  },
+
+  "config": {
+    "bin-dir": "bin"
+  }
+}
