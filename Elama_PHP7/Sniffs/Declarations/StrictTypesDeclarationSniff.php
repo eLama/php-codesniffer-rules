@@ -1,8 +1,5 @@
 <?php
 
-declare(strict_types=0);
-
-
 class Elama_PHP7_Sniffs_Declarations_StrictTypesDeclarationSniff implements PHP_CodeSniffer_Sniff
 {
 
