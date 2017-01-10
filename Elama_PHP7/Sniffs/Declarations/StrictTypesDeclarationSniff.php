@@ -15,10 +15,6 @@ class Elama_PHP7_Sniffs_Declarations_StrictTypesDeclarationSniff implements PHP_
         );
     }
 
-
-
-
-
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
@@ -39,7 +35,7 @@ class Elama_PHP7_Sniffs_Declarations_StrictTypesDeclarationSniff implements PHP_
                 $i++;
             }
 
-            if ($declaration === 'declare(strict_types=1)'){
+            if ($declaration === 'declare(strict_types=1)') {
                 return;
             }
         }
@@ -47,5 +43,4 @@ class Elama_PHP7_Sniffs_Declarations_StrictTypesDeclarationSniff implements PHP_
         $error = "Each php tag has to have 'strict_types=1' declaration";
         $phpcsFile->addError($error, $stackPtr);
     }
-
 }

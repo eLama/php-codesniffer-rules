@@ -3,7 +3,7 @@
 class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements PHP_CodeSniffer_Sniff
 {
 
-    public $maxNewlinesInRow = 2;
+    public $maxEmptyLinesInRow = 2;
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -24,9 +24,9 @@ class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements PHP_CodeSniff
 
         for ($i = 0; $i < count($tokens); $i++) {
             if ($tokens[$i]['code'] !== T_WHITESPACE) {
-                if (($newlinesCount = $newlinesCount - 2) > $this->maxNewlinesInRow) {
+                if (($emptyLinesCount = $newlinesCount - 2) > $this->maxEmptyLinesInRow) {
                     $phpcsFile->addError(
-                        "Found $newlinesCount newlines in a row, max {$this->maxNewlinesInRow}",
+                        "Found $emptyLinesCount empty lines in a row, max {$this->maxEmptyLinesInRow}",
                         $i
                     );
                 }
