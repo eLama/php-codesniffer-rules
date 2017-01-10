@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="elama-php7">
+<ruleset name="Elama_PHP7">
     <description>The elama-php7 coding standard.</description>
     <arg name="tab-width" value="4"/>
 
