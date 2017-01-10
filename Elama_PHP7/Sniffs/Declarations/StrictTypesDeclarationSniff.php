@@ -15,6 +15,10 @@ class Elama_PHP7_Sniffs_Declarations_StrictTypesDeclarationSniff implements PHP_
         );
     }
 
+
+
+
+
     public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
