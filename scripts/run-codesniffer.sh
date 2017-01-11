@@ -15,14 +15,14 @@ IGNORED_DIRS=${1}
 
 if [ "$FILES" != "" ]
 then
-    cd ${WORKDIR}
+    cd "${WORKDIR}"
 
-    ${BIN_DIR}/phpcs -p -v \
-    --standard=${WORKDIR}/vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
+    "${BIN_DIR}"/phpcs -p -v \
+    --standard="${WORKDIR}"/vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
     --extensions=php \
-    --report-file=${WORKDIR}/build/checkstyle-result.xml \
+    --report-file="${WORKDIR}"/build/checkstyle-result.xml \
     --encoding=utf-8 \
     ${FILES}
 fi
