@@ -1,6 +1,6 @@
 <?php
 
-class Elama_PHP7_Sniffs_Calls_SetCurrentDateTimeSniff implements PHP_CodeSniffer_Sniff
+class Elama_PHP_Sniffs_Calls_SetCurrentDateTimeSniff implements PHP_CodeSniffer_Sniff
 {
     public function register()
     {

@@ -3,15 +3,6 @@
     <description>The elama php7 coding standard.</description>
     <arg name="tab-width" value="4"/>
 
-    <rule ref="PSR2"/>
-
-    <rule ref="Generic.PHP.ForbiddenFunctions">
-        <properties>
-            <property
-                    name="forbiddenFunctions"
-                    type="array"
-                    value="sizeof=>count,delete=>unset,print=>echo,die=>null,create_function=>null,exit=>null,eval=>null,var_dump=>null,print_r=>null,var_export=>null"/>
-        </properties>
-    </rule>
+    <rule ref="../Elama_PHP/ruleset.xml"/>
 
 </ruleset>
