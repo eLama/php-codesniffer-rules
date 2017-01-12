@@ -1,7 +1,7 @@
 {
   "name": "elama\/php-codesniffer-rules",
 
-  "require-dev": {
+  "require": {
     "squizlabs/php_codesniffer": "2.*"
   },
 
