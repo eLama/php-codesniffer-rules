@@ -22,7 +22,7 @@ then
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
     --extensions=php \
-    --report-file="${WORKDIR}"/build/checkstyle-result.xml \
+    --report-file="${WORKDIR}"/checkstyle-result.xml \
     --encoding=utf-8 \
     ${FILES}
 fi
