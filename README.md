@@ -1,1 +1,1 @@
-# php-codesniffer-rules test
+# php-codesniffer-rules
