@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-git fetch origin master:master
+git fetch origin master:master || true
 fork_point=$(git merge-base --octopus master)
 FILES=$(git diff --diff-filter=AMRC --name-only ${fork_point} | grep .php | tr "\n" " ")
 
