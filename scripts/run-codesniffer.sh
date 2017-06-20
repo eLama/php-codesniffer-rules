@@ -11,13 +11,14 @@ then
     exit
 fi
 
+PHP_VERSION=$(php -r 'echo PHP_MAJOR_VERSION;')
+IGNORED_DIRS=${1}
+
 WORKDIR="`pwd`"
 
 cd $( dirname "$0" )
 
 BIN_DIR="`pwd`"
-PHP_VERSION=$( php -r 'echo PHP_MAJOR_VERSION;' )
-IGNORED_DIRS=${1}
 
 cd "${WORKDIR}"
 
