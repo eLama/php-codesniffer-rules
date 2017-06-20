@@ -1,28 +1,27 @@
-#!/bin/bash
+#!/bin/sh
+
 set -ex
 
 git fetch origin master:master || true
-fork_point=$(git merge-base --octopus master)
-FILES=$(git diff --diff-filter=AMRC --name-only ${fork_point} | grep .php | tr "\n" " ")
+FORK_POINT=$(git merge-base --octopus master)
+FILES=$(git diff -z --diff-filter=AMRC --name-only ${FORK_POINT} -- '*.php' | xargs -0)
 
-WORKDIR="`pwd`"
+if [ -z "$FILES" ]
+then
+    exit
+fi
 
-cd $( dirname "$0" )
-
-BIN_DIR="`pwd`"
-PHP_VERSION=$( php -r 'echo PHP_MAJOR_VERSION;' )
+PHP_VERSION=$(php -r 'echo PHP_MAJOR_VERSION;')
 IGNORED_DIRS=${1}
 
-if [ "$FILES" != "" ]
-then
-    cd "${WORKDIR}"
+PHPCS=$(dirname "$0")/phpcs
 
-    "${BIN_DIR}"/phpcs -p -v \
-    --standard="${WORKDIR}"/vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
+$PHPCS --config-set installed_paths vendor/elama/php-codesniffer-rules
+
+$PHPCS -p -v \
+    --standard=Elama_PHP${PHP_VERSION} \
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
-    --extensions=php \
-    --report-file="${WORKDIR}"/checkstyle-result.xml \
+    --report-file=checkstyle-result.xml \
     --encoding=utf-8 \
     ${FILES}
-fi
