@@ -25,6 +25,5 @@ class Elama_PHP_Sniffs_Calls_SetCurrentDateTimeSniff implements Sniff
             ];
             $phpcsFile->addError($error, $stackPtr, 'Found', $data);
         }
-
     }
 }

@@ -44,6 +44,6 @@ class Elama_PHP7_Sniffs_Declarations_StrictTypesDeclarationSniff implements Snif
         }
 
         $error = "Each php tag has to have 'strict_types=1' declaration";
-        $phpcsFile->addError($error, $stackPtr);
+        $phpcsFile->addError($error, $stackPtr, 'StrictTypesDeclarationMissed');
     }
 }
