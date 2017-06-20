@@ -30,7 +30,8 @@ class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements Sniff
                 if (($emptyLinesCount = $newlinesCount - 2) > $this->maxEmptyLinesInRow) {
                     $phpcsFile->addError(
                         "Found $emptyLinesCount empty lines in a row, max {$this->maxEmptyLinesInRow}",
-                        $i
+                        $i,
+                        'EmptyLinesRepeated'
                     );
                 }
                 $newlinesCount = 0;
@@ -40,5 +41,4 @@ class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements Sniff
             $newlinesCount++;
         }
     }
-
 }
