@@ -16,8 +16,10 @@ IGNORED_DIRS=${1}
 
 PHPCS=$(dirname "$0")/phpcs
 
+$PHPCS --config-set installed_paths vendor/elama/php-codesniffer-rules
+
 $PHPCS -p -v \
-    --standard=vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
+    --standard=Elama_PHP${PHP_VERSION} \
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
     --extensions=php \
