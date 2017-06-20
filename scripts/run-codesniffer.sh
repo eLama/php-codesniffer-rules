@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 set -ex
 
 git fetch origin master:master || true
