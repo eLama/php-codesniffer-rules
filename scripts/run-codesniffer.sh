@@ -4,7 +4,7 @@ set -ex
 
 git fetch origin master:master || true
 FORK_POINT=$(git merge-base --octopus master)
-FILES=$(git diff --diff-filter=AMRC --name-only ${FORK_POINT} | grep .php | tr "\n" " ")
+FILES=$(git diff --diff-filter=AMRC --name-only ${FORK_POINT} '*.php' | tr "\n" " ")
 
 if [ -z "$FILES" ]
 then
