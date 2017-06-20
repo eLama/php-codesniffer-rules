@@ -16,9 +16,9 @@ IGNORED_DIRS=${1}
 
 WORKDIR="`pwd`"
 
-BIN_DIR=$(dirname "$0")
+PHPCS=$(dirname "$0")/phpcs
 
-"${BIN_DIR}"/phpcs -p -v \
+$PHPCS -p -v \
     --standard="${WORKDIR}"/vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
