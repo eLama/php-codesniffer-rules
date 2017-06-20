@@ -22,7 +22,6 @@ $PHPCS -p -v \
     --standard=Elama_PHP${PHP_VERSION} \
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
-    --extensions=php \
     --report-file=checkstyle-result.xml \
     --encoding=utf-8 \
     ${FILES}
