@@ -16,11 +16,7 @@ IGNORED_DIRS=${1}
 
 WORKDIR="`pwd`"
 
-cd $( dirname "$0" )
-
-BIN_DIR="`pwd`"
-
-cd "${WORKDIR}"
+BIN_DIR=$(dirname "$0")
 
 "${BIN_DIR}"/phpcs -p -v \
     --standard="${WORKDIR}"/vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
