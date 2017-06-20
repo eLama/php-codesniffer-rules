@@ -14,15 +14,13 @@ fi
 PHP_VERSION=$(php -r 'echo PHP_MAJOR_VERSION;')
 IGNORED_DIRS=${1}
 
-WORKDIR="`pwd`"
-
 PHPCS=$(dirname "$0")/phpcs
 
 $PHPCS -p -v \
-    --standard="${WORKDIR}"/vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
+    --standard=vendor/elama/php-codesniffer-rules/Elama_PHP${PHP_VERSION}/ruleset.xml \
     --ignore=${IGNORED_DIRS} \
     --report=checkstyle \
     --extensions=php \
-    --report-file="${WORKDIR}"/checkstyle-result.xml \
+    --report-file=checkstyle-result.xml \
     --encoding=utf-8 \
     ${FILES}
