@@ -1,0 +1,8 @@
+pipeline:
+  build:
+    image: plugins/docker
+    repo: dockerreg.elama.ru/elama/phpcs
+    registry: dockerreg.elama.ru
+    tags:
+      - latest
+      - "${DRONE_COMMIT_SHA:0:7}"
