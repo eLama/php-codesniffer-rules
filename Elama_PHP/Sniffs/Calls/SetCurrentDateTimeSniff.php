@@ -1,13 +1,16 @@
 <?php
 
-class Elama_PHP_Sniffs_Calls_SetCurrentDateTimeSniff implements PHP_CodeSniffer_Sniff
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+
+class Elama_PHP_Sniffs_Calls_SetCurrentDateTimeSniff implements Sniff
 {
     public function register()
     {
         return [T_DOUBLE_COLON];
     }
 
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
 
@@ -22,6 +25,5 @@ class Elama_PHP_Sniffs_Calls_SetCurrentDateTimeSniff implements PHP_CodeSniffer_
             ];
             $phpcsFile->addError($error, $stackPtr, 'Found', $data);
         }
-
     }
 }

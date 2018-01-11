@@ -1,6 +1,9 @@
 <?php
 
-class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements PHP_CodeSniffer_Sniff
+use PHP_CodeSniffer\Sniffs\Sniff;
+use PHP_CodeSniffer\Files\File;
+
+class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements Sniff
 {
 
     public $maxEmptyLinesInRow = 1;
@@ -17,7 +20,7 @@ class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements PHP_CodeSniff
         );
     }
 
-    public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr)
+    public function process(File $phpcsFile, $stackPtr)
     {
         $tokens = $phpcsFile->getTokens();
         $newlinesCount = 0;
@@ -27,7 +30,8 @@ class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements PHP_CodeSniff
                 if (($emptyLinesCount = $newlinesCount - 2) > $this->maxEmptyLinesInRow) {
                     $phpcsFile->addError(
                         "Found $emptyLinesCount empty lines in a row, max {$this->maxEmptyLinesInRow}",
-                        $i
+                        $i,
+                        'EmptyLinesRepeated'
                     );
                 }
                 $newlinesCount = 0;
@@ -37,5 +41,4 @@ class Elama_PHP_Sniffs_Formatting_MaxNewlinesInRowSniff implements PHP_CodeSniff
             $newlinesCount++;
         }
     }
-
 }
